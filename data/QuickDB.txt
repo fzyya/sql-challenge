@@ -1,0 +1,35 @@
+departments
+-
+dept_no CHAR(10) pk
+dept_name CHAR(50)
+
+titles
+-
+title_id CHAR(10) pk
+title CHAR(30) 
+
+employees
+-
+emp_no INT PK
+emp_title_id CHAR(10) FK >- titles.title_id
+birth_date DATE 
+first_name CHAR(30) 
+last_name CHAR(30) 
+sex NCHAR
+hire_date DATE
+
+salaries 
+--
+emp_no INT pk FK >- employees.emp_no
+PK (emp_no)
+salary MONEY
+
+dept_manager
+-
+dept_no CHAR(10) pk FK >- departments.dept_no 
+emp_no INT pk FK >- employees.emp_no 
+
+dept_emp
+-
+emp_no INT pk FK >- employees.emp_no
+dept_no CHAR(20) pk FK >- departments.dept_no
